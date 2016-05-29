@@ -1,0 +1,35 @@
+{
+  "name": "bookimg",
+  "version": "0.0.2",
+  "manifest_version": 2,
+  "description": "This extension adds big images from current page to bookmarks",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "browser_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "bookmark images"
+  },
+  "permissions": [
+    "bookmarks",
+    "http://*/*",
+    "https://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [ "http://*/*", "https://*/*" ],
+      "js": [
+        "js/jquery-2.2.4.min.js",
+        "src/inject/bookimg-inject.js"
+      ]
+    }
+  ]
+}
